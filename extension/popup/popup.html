@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Juntos</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Netflix Juntos</h1>
+  <div id="login-form">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button id="login-btn">Iniciar sesión</button>
+    <button id="register-btn">Registrarse</button>
+  </div>
+  <div id="room-controls" style="display: none;">
+    <button id="create-room">Crear sala</button>
+    <input type="text" id="room-code" placeholder="Código de sala">
+    <button id="join-room">Unirse a sala</button>
+  </div>
+  <div id="in-room-controls" style="display: none;">
+    <p>Estás en la sala: <span id="room-code-display"></span></p>
+    <button id="leave-room">Salir de la sala</button>
+  </div>
+  <div id="status"></div>
+  <div id="chat-container" style="display: none;">
+    <div id="messages"></div>
+    <input type="text" id="chat-input" placeholder="Escribe un mensaje...">
+    <button id="send-message">Enviar</button>
+  </div>
+  <button id="share-room">Compartir sala</button>
+  <script src="../lib/socket.io.js"></script>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Netflix Juntos",
+    "version": "1.0",
+    "description": "Ve Netflix con tus amigos de forma sincronizada",
+    "icons": {
+        "16": "extension/images/icon16.png",
+        "48": "extension/images/icon48.png",
+        "128": "extension/images/icon128.png"
+    },
+    "permissions": ["activeTab", "storage", "tabs"],
+    "host_permissions": [
+      "*://*.netflix.com/*",
+      "http://127.0.0.1:3000/*"
+    ],
+    "action": {
+      "default_popup": "extension/popup/popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.netflix.com/*"],
+        "js": ["extension/content/content.js"],
+        "type": "module"
+      }
+    ],
+    "background": {
+      "service_worker": "extension/background/background.js",
+      "type": "module"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["extension/lib/socket.io.js", "extension/lib/i18n.js"],
+        "matches": ["*://*.netflix.com/*"]
+      }
+    ]
+}
